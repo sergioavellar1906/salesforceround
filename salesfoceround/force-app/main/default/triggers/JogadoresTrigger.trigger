@@ -3,7 +3,7 @@ trigger JogadoresTrigger on Jogador__c (before insert, before update) {
     //Versão 1 
     if(Trigger.isBefore){//verifica contexto
         if(Trigger.isUpdate){
-            JogadoresTrigger.beforeUpdate(Trigger.new,Trigger.oldMap); //chama a handler
+            JogadoresTriggerHandler.beforeUpdate(Trigger.new,Trigger.oldMap); //chama a handler
         }
     }
 
