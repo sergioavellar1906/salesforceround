@@ -8,7 +8,7 @@ public class BatatinhaFrita implements IPartida{
         
         Integer mortes = (Integer) participantes.size() / 2; 
         
-        for(Integer i = 0; i < mortes; i++){
+        for(Integer i = 0; i < mortes; i++){ 
             Jogador__c jogador = new Jogador__c();
             jogador.Id = participantes[i].Jogador__c;
             jogador.Eliminado__c = true;
