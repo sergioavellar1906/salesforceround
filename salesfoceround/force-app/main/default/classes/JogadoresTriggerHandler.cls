@@ -34,14 +34,15 @@ public without sharing class JogadoresTriggerHandler {
     }
 
     private static Boolean ehJogadorPadrao(Jogador__c record) {
+        if (record.RecordTypeId)
         return true;
     }
 
     private static Boolean foiEliminado(Jogador__c record,Jogador__c recordOld) {
-        return true;
+        return isChanged(recordOld,record,Jogador__c.Eliminado__c);
     }
 
     private static Boolean morreu(Jogador__c record,Jogador__c recordOld) {
-        return true;
+        return isChanged(recordOld,record,Jogador__c.Morreu__c);
     }
 }
