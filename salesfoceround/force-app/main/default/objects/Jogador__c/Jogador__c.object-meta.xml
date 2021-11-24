@@ -143,7 +143,7 @@
     <allowInChatterGroups>true</allowInChatterGroups>
     <compactLayoutAssignment>Jogadores</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Participantes do jogo</description>
+    <description>Participante do jogo</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>false</enableBulkApi>
     <enableFeeds>true</enableFeeds>
@@ -158,7 +158,7 @@
     <label>Jogador</label>
     <nameField>
         <displayFormat>Jogador-{000}</displayFormat>
-        <label>Numero do Jogador</label>
+        <label>Número do Jogador</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>

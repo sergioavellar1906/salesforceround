@@ -4,7 +4,7 @@
     <description>Valor total da dívida do candidato com agiotas ou bancos.</description>
     <externalId>false</externalId>
     <inlineHelpText>Valor total da dívida do candidato com agiotas ou bancos.</inlineHelpText>
-    <label>Valor da dívida</label>
+    <label>Valor da Dívida</label>
     <precision>18</precision>
     <required>false</required>
     <scale>2</scale>

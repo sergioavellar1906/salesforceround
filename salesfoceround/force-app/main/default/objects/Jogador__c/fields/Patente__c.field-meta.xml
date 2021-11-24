@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Patente__c</fullName>
-    <description>patente do membro da staff</description>
+    <description>Patente do membro da staff</description>
     <externalId>false</externalId>
-    <inlineHelpText>patente do membro da staff</inlineHelpText>
+    <inlineHelpText>Patente do membro da staff</inlineHelpText>
     <label>Patente</label>
     <length>255</length>
     <required>false</required>

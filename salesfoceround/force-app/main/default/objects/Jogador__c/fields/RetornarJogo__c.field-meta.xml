@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>RetornaJogo__c</fullName>
-    <description>Reiniciaro o round</description>
+    <fullName>RetornarJogo__c</fullName>
+    <description>Usado para reiniciar o round</description>
     <externalId>false</externalId>
-    <inlineHelpText>Reiniciaro o round</inlineHelpText>
+    <inlineHelpText>Reiniciar o round</inlineHelpText>
     <label>Retornar ao Jogo</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>

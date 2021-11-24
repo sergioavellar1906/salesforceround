@@ -5,7 +5,7 @@
       "default": true
     }
   ],
-  "name": "salesfoceround",
+  "name": "etho-5",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "52.0"

@@ -2,10 +2,10 @@
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>JogadorPadrao</fullName>
     <active>true</active>
-    <description>JogadorPadrao</description>
+    <description>Jogadores sem regalias.</description>
     <label>Jogador Padrão</label>
     <picklistValues>
-        <picklist>RetornaJogo__c</picklist>
+        <picklist>RetornarJogo__c</picklist>
         <values>
             <fullName>Não</fullName>
             <default>false</default>
