@@ -17,6 +17,6 @@ public without sharing class Utils {
     //retornar número aleatório entre X e Y (inclusivo)
     //x <= retorno <= y
     public static Integer generateRandomIntegerBetween(Integer x, Integer y) {
-        return Integer.valueof((Math.random() * (x - y + 1)) + x);
+        return Integer.valueof((Math.random() * (x - y + 1)));
     }
 }

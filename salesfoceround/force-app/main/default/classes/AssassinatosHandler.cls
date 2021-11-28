@@ -22,22 +22,30 @@ public with sharing class AssassinatosHandler {
     static void combate (List<Jogador__c> jogadoresRound){
 
         Jogador__c atacante  = determinaJogador(jogadoresRound,null);
+        System.debug('Jogador atacante' + atacante);
+        
         Jogador__c defensor = determinaJogador(jogadoresRound,atacante); 
-
-        Integer dadoAssassino = jogarDados(INICIO_DADO,NUMERO_LADOS_D20); 
+		System.debug('Jogador defensor' + defensor);
+        
+        Integer dadoAssassino = jogarDados(NUMERO_LADOS_D20,INICIO_DADO); 
+        System.debug('Dados do Assassino ' + dadoAssassino);
         Integer jogadaAssassino =  dadoAssassino + Integer.valueOf(atacante.Forca__c);
-        //Assassinaod Joga
+        System.debug('Jogada do Assassino ' + jogadaAssassino);
         Integer defesaAssassinado = defender(defensor);
+        System.debug('Jogada do Defensor ' + defesaAssassinado);
       
         if(jogadaAssassino > defesaAssassinado){
-            defensor.Eliminado__c = true;             
+            defensor.Morreu__c = true;             
         }else{
             if(DEU_CHANCE_CONTRA_GOLPE == dadoAssassino){
-                Integer novoAtacanteJoga = jogarDados(INICIO_DADO,NUMERO_LADOS_D20) + Integer.valueOf(defensor.Forca__c); 
+                System.debug('Houve contra golpe'); 
+                Integer novoAtacanteJoga = jogarDados(NUMERO_LADOS_D20,INICIO_DADO) + Integer.valueOf(defensor.Forca__c); 
+                System.debug('Contra Golpe do Novo Atacante...' + novoAtacanteJoga); 
                 Integer defesaContraGolpe = defender(atacante);
+                System.debug('Defesa do outrora atacante...' + defesaContraGolpe);
 
                 if (novoAtacanteJoga > defesaContraGolpe){
-                    atacante.Eliminado__c = true;                       
+                    atacante.Morreu__c = true;                       
                 }
 
             }       
@@ -46,10 +54,10 @@ public with sharing class AssassinatosHandler {
     }
     static Jogador__c determinaJogador(List<Jogador__c> jogadoresRound, Jogador__c jogador){
         //Garantir que não serão iguais.
-        Jogador__c jogadorAleatorio = jogadoresRound.get(Utils.generateRandomIntegerBetween(0,jogadoresRound.size()));
+        Jogador__c jogadorAleatorio = jogadoresRound.get(Utils.generateRandomIntegerBetween(jogadoresRound.size()-1,0));
         if(null != jogador){
             while (jogadorAleatorio.Id == jogador.Id){
-                jogadorAleatorio = jogadoresRound.get(Utils.generateRandomIntegerBetween(0,jogadoresRound.size()));
+                jogadorAleatorio = jogadoresRound.get(Utils.generateRandomIntegerBetween(jogadoresRound.size()-1,0));
             }
         }
         return jogadorAleatorio;
@@ -62,8 +70,8 @@ public with sharing class AssassinatosHandler {
     static Integer defender(Jogador__c jogadorDefende){
         return 
             (
-              jogarDados(INICIO_DADO,NUMERO_LADOS_D10) + 
-              jogarDados(INICIO_DADO,NUMERO_LADOS_D10) + 
+              jogarDados(NUMERO_LADOS_D10,INICIO_DADO) + 
+              jogarDados(NUMERO_LADOS_D10,INICIO_DADO) + 
               Integer.valueOf(jogadorDefende.Inteligencia__c) + 
               Integer.valueOf(jogadorDefende.Velocidade__c)
             );  
