@@ -2,9 +2,9 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Candidato__c</fullName>
     <deleteConstraint>Restrict</deleteConstraint>
-    <description>Referente ao registro do candidato.</description>
+    <description>Referente ao registro do candidato</description>
     <externalId>false</externalId>
-    <inlineHelpText>Referente ao registro do candidato.</inlineHelpText>
+    <inlineHelpText>Referente ao registro do candidato</inlineHelpText>
     <label>Candidato</label>
     <referenceTo>Candidato__c</referenceTo>
     <relationshipLabel>Jogadores</relationshipLabel>

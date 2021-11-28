@@ -2,9 +2,9 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Eliminado__c</fullName>
     <defaultValue>false</defaultValue>
-    <description>Usado para informar se o jogador foi eliminado</description>
+    <description>usado para informar se o jogador foi eliminado.</description>
     <externalId>false</externalId>
-    <inlineHelpText>Jogador eliminado?</inlineHelpText>
+    <inlineHelpText>Jogador Eliminado?</inlineHelpText>
     <label>Eliminado</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
