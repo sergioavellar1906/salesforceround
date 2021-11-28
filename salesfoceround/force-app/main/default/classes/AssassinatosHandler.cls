@@ -9,43 +9,42 @@ public with sharing class AssassinatosHandler {
 
     }
 
-    static void execute (){
+    public static void execute(){
 
         List<Jogador__c> jogadoresRound = new List<Jogador__c>(selectJogadorByRound());
         
         combate(jogadoresRound);
 
-        update Jogador__c;  // tentar testar no developer console. // Aqui já vai chamar a trigger
+        update jogadoresRound;  // tentar testar no developer console. // Aqui já vai chamar a trigger
                                     //  Então vai mexer no objeto mesmo.          
     }
 
-    private void combate (List<Jogador__c> jogadoresRound){
+    static void combate (List<Jogador__c> jogadoresRound){
 
         Jogador__c atacante  = determinaJogador(jogadoresRound,null);
         Jogador__c defensor = determinaJogador(jogadoresRound,atacante); 
 
         Integer dadoAssassino = jogarDados(INICIO_DADO,NUMERO_LADOS_D20); 
-        Integer jogadaAssassino =  dadoAssassino + atacante.Forca__c;
+        Integer jogadaAssassino =  dadoAssassino + Integer.valueOf(atacante.Forca__c);
         //Assassinaod Joga
         Integer defesaAssassinado = defender(defensor);
       
         if(jogadaAssassino > defesaAssassinado){
-            defensor.Eliminado__c = true; 
+            defensor.Eliminado__c = true;             
         }else{
             if(DEU_CHANCE_CONTRA_GOLPE == dadoAssassino){
-                Integer novoAtacanteJoga = jogarDados(INICIO_DADO,NUMERO_LADOS_D20) + defensor.Forca__c; 
+                Integer novoAtacanteJoga = jogarDados(INICIO_DADO,NUMERO_LADOS_D20) + Integer.valueOf(defensor.Forca__c); 
                 Integer defesaContraGolpe = defender(atacante);
 
                 if (novoAtacanteJoga > defesaContraGolpe){
-                    atacante.Eliminado__c = true; 
-                        
+                    atacante.Eliminado__c = true;                       
                 }
 
             }       
         }
 
     }
-    private Jogador__c determinaJogador(List<Jogador__c> jogadoresRound, Jogador__c jogador){
+    static Jogador__c determinaJogador(List<Jogador__c> jogadoresRound, Jogador__c jogador){
         //Garantir que não serão iguais.
         Jogador__c jogadorAleatorio = jogadoresRound.get(Utils.generateRandomIntegerBetween(0,jogadoresRound.size()));
         if(null != jogador){
@@ -56,21 +55,21 @@ public with sharing class AssassinatosHandler {
         return jogadorAleatorio;
     }
 
-    private Integer jogarDados(Integer inicio, Integer lados){
+    static Integer jogarDados(Integer inicio, Integer lados){
         return Utils.generateRandomIntegerBetween(inicio, lados);
     }
 
-    private Integer defender(Jogador__c jogadorDefende){
+    static Integer defender(Jogador__c jogadorDefende){
         return 
             (
               jogarDados(INICIO_DADO,NUMERO_LADOS_D10) + 
               jogarDados(INICIO_DADO,NUMERO_LADOS_D10) + 
-              jogadoresAssassinado.Inteligencia__c + 
-              jogadoresAssassinado.Velocidade__c
+              Integer.valueOf(jogadorDefende.Inteligencia__c) + 
+              Integer.valueOf(jogadorDefende.Velocidade__c)
             );  
     }
 
-    private List<Round__c> selectJogadorByRound() { //voltar para saber o que eu pego aqui
+    static List<Jogador__c> selectJogadorByRound() { //voltar para saber o que eu pego aqui
         return [
             SELECT Id, Name, Nick__c, Forca__c, Round__r.Status__C, Inteligencia__c, Velocidade__c,
                    Eliminado__c
