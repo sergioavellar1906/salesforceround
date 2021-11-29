@@ -9,6 +9,7 @@ public with sharing class AssassinatosHandler {
 
     }
 
+    
     public static void execute(){
 
         List<Jogador__c> jogadoresRound = new List<Jogador__c>(selectJogadorByRound());
@@ -19,6 +20,7 @@ public with sharing class AssassinatosHandler {
                                     //  Então vai mexer no objeto mesmo.          
     }
 
+    @TestVisible
     static void combate (List<Jogador__c> jogadoresRound){
 
         Jogador__c atacante  = determinaJogador(jogadoresRound,null);
@@ -35,7 +37,8 @@ public with sharing class AssassinatosHandler {
         System.debug('Jogada do Defensor ' + defesaAssassinado);
       
         if(jogadaAssassino > defesaAssassinado){
-            defensor.Morreu__c = true;             
+            defensor.Morreu__c = true;
+            setarDadoAssassinoAssassinado(atacante,defensor);             
         }else{
             if(DEU_CHANCE_CONTRA_GOLPE == dadoAssassino){
                 System.debug('Houve contra golpe'); 
@@ -45,7 +48,8 @@ public with sharing class AssassinatosHandler {
                 System.debug('Defesa do outrora atacante...' + defesaContraGolpe);
 
                 if (novoAtacanteJoga > defesaContraGolpe){
-                    atacante.Morreu__c = true;                       
+                    atacante.Morreu__c = true; 
+                    setarDadoAssassinoAssassinado(defensor,atacante);                      
                 }
 
             }       
@@ -61,6 +65,14 @@ public with sharing class AssassinatosHandler {
             }
         }
         return jogadorAleatorio;
+    }
+
+    static void setarDadoAssassinoAssassinado(Jogador__c jogadorAssassino,Jogador__c jogadorAssassinado){
+        Assassinato__c assassinato = new Assassinato__c (); 
+        assassinato.Assassino__c = jogadorAssassino.Id;
+        assassinato.Assassinado__c = jogadorAssassinado.Id; 
+        assassinato.DataHora__c = System.now();
+        insert assassinato;
     }
 
     static Integer jogarDados(Integer inicio, Integer lados){
