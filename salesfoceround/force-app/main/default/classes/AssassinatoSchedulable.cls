@@ -1,4 +1,4 @@
-public class AssassinatoSchedulable implements Schedulable {
+public class AssassinatoSchedulable implements Schedulable { 
 
     Integer addMinutes;
 
