@@ -1,0 +1,21 @@
+<template>   
+    <div class = "container">               
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_12-of-12 ">               
+            <lightning-card class = "vivo">
+                <div><b><u>{round.Name}</u></b></div>        
+                <div>Lista de Jogadores: </div>       
+                    <div class="container-jogadores">   
+                                <template for:each={round.Jogadores2__r} for:item="jogador" for:index="i">                                        
+                                    <c-jogador-container 
+                                    key={jogador.ID}
+                                    jogador={jogador}
+                                    index={i}
+                                    >                
+                                    </c-jogador-container>                      
+                                </template>
+                                            
+                    </div> 
+            </lightning-card>
+        </div>                    
+    </div>    
+</template>
