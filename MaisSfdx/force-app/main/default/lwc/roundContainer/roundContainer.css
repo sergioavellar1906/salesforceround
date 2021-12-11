@@ -1,0 +1,10 @@
+.container-jogadores{
+    display: grid;
+    grid-template-columns: 1fr; 
+    background: red;
+}
+
+
+.vivo{
+    --sds-c-card-color-background: green;     
+}

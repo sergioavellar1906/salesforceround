@@ -1,0 +1,17 @@
+<template>
+      <lightning-combobox
+      name="progress"
+      label=""
+      placeholder="Escolha uma das opções"
+      ></lightning-combobox>
+
+    <div class="container">      
+      <div class="container-rounds">
+            <div class="slds-grid slds-wrap slds-gutters">
+                  <template for:each={rounds} for:item="round">                
+                        <c-round-container key={round.Id} round={round}></c-round-container>                
+                  </template>                     
+            </div>      
+      </div>      
+   </div>    
+</template>
