@@ -2,10 +2,9 @@
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>All</fullName>
     <columns>NAME</columns>
-    <columns>CEPAlterado__c</columns>
-    <columns>Rua__c</columns>
-    <columns>Estado__c</columns>
-    <columns>Aceite__c</columns>
+    <columns>Ativa__c</columns>
+    <columns>Motor__c</columns>
+    <columns>Patrocinadores__c</columns>
     <filterScope>Everything</filterScope>
     <label>Tudo</label>
 </ListView>

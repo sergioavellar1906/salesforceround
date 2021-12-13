@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Equipe__c</fullName>
+    <description>Equipe a qual o piloto pertence.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Equipe a qual o piloto pertence.</inlineHelpText>
+    <label>Equipe</label>
+    <referenceTo>Equipe__c</referenceTo>
+    <relationshipLabel>Pilotos</relationshipLabel>
+    <relationshipName>Pilotos</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

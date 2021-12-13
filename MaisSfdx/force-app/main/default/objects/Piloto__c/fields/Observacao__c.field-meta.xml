@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Observacao__c</fullName>
+    <description>Observações da carreira do piloto.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Observações da carreira do piloto.</inlineHelpText>
+    <label>Observação</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>
